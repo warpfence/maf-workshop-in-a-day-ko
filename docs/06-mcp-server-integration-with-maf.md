@@ -186,7 +186,7 @@ save-points/
     // 백엔드 에이전트 프로젝트 수정하기
     var agent = builder.AddProject<Projects.MafWorkshop_Agent>("agent")
                        .WithExternalHttpEndpoints()
-                       .WithLlmReference(builder.Configuration);
+                       .WithLlmReference(builder.Configuration, args);
     ```
 
    **변경후:**
@@ -195,7 +195,7 @@ save-points/
     // 백엔드 에이전트 프로젝트 수정하기
     var agent = builder.AddProject<Projects.MafWorkshop_Agent>("agent")
                        .WithExternalHttpEndpoints()
-                       .WithLlmReference(builder.Configuration)
+                       .WithLlmReference(builder.Configuration, args)
                        .WithReference(mcptodo)
                        .WaitFor(mcptodo);
     ```
